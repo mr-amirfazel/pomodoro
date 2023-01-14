@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from "react";
 
+import Button from "../button/button";
+
 const Timer = () => {
-    const[minutes, setMinutes] = useState(60);
+    const[minutes, setMinutes] = useState(6);
     const[seconds, setSeconds] = useState(50);
-    const[intervalId, setIntervalId] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
 
 
 
     useEffect(() => {
         document.title = `${string_builder(minutes)}:${string_builder(seconds)}`;
+        let id:number;
         if (timerOn) {
-            let id: number = window.setInterval(() => {
+            id= window.setInterval(() => {
                 if(seconds > 0) {
                     setSeconds(seconds => seconds-1);
                }
@@ -20,23 +22,21 @@ const Timer = () => {
                     setSeconds(59);
                }
                else{
-                    console.log('clear interval');
-                    window.clearInterval(intervalId);
-                    setIntervalId(0);
+                
+                    setTimerOn(false);
                }
-            },100);
-            setIntervalId(id);
+            },10);
         }
         else{
-            window.clearInterval(intervalId);
+            window.clearInterval(id!);
         }
-        return window.clearInterval(intervalId);
+        return () => window.clearInterval(id);
     }
     ,[minutes, seconds, timerOn]);
 
 
 
-    const clickHandler = (event: React.MouseEvent<HTMLButtonElement>) =>{
+    const clickHandler = () =>{
        setTimerOn(prev => !prev);
     }
 
@@ -50,7 +50,7 @@ const Timer = () => {
     return (
     <>
     <p>{string_builder(minutes)} : {string_builder(seconds)}</p>
-    <button onClick={clickHandler}>{timerOn ? `stop` : `start`}</button>
+    <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
     </>
         );
 }
