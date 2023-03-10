@@ -8,8 +8,5 @@ export const digitArray = (timeEl: number): number[] =>{
         array.push(Math.floor(timeEl%10));
         timeEl= Math.floor(timeEl/10);
     }
-
-    console.log(array);
-
     return array.reverse();
 }

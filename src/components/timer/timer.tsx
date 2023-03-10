@@ -16,7 +16,7 @@ const Timer:FC<TimerProps> = (props) => {
 
 
     useEffect(() => {
-        document.title = `${string_builder(minutes)}:${string_builder(seconds)}`;
+        document.title = `${minutes}:${seconds}`;
         let id:number;
         if (timerOn) {
             id= window.setInterval(() => {
@@ -46,16 +46,8 @@ const Timer:FC<TimerProps> = (props) => {
        setTimerOn(prev => !prev);
     }
 
-    const string_builder = (time: number) =>
-    {
-        if (time<10)
-            return `0${time}`;
-        else
-            return `${time}`
-    }
     return (
     <>
-    {/* <p>{string_builder(minutes)} : {string_builder(seconds)}</p> */}
     <div className="flex gap-2 py-1 w-full justify-center items-center">
         {digitArray(minutes).map((number, index) => <DigitCard key={index} digit = {number} />)}
         <DigitCard digit={":"} />
