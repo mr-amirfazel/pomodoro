@@ -1,8 +1,8 @@
 import React, {useState, useEffect, PropsWithChildren, FC} from "react";
 import DigitCard from './digitCard';
-import {digitArray} from "../../utils/utils";
+import {digitArray} from "../../../utils/utils";
 
-import Button from "../Base/button/button";
+import Button from "../../Base/button/button";
 
 interface TimerProps extends PropsWithChildren{
     minutes: number;
@@ -47,14 +47,18 @@ const Timer:FC<TimerProps> = (props) => {
     }
 
     return (
-    <>
+    <div>
     <div className="flex gap-2 py-1 w-full justify-center items-center">
+        <div className="flex gap-[.1rem]">
         {digitArray(minutes).map((number, index) => <DigitCard key={index} digit = {number} />)}
+        </div>
         <DigitCard digit={":"} />
+        <div className="flex gap-[.1rem]">
         {digitArray(seconds).map((number, index) => <DigitCard key={index} digit = {number} />)}
+        </div>
     </div>
     <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
-    </>
+    </div>
         );
 }
 

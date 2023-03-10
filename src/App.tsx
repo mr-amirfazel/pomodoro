@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import LayOut from './components/Layout';
-import Timer from './components/timer/timer';
+import Main from './components/Main';
 
 
 function App() {
   return (
     <div className="App">
       <LayOut>
-        <Timer minutes={60} seconds={60}></Timer>
+        <Main />
       </LayOut>
     </div>
   );
