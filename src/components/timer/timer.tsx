@@ -1,10 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, PropsWithChildren, FC} from "react";
 
 import Button from "../button/button";
 
-const Timer = () => {
-    const[minutes, setMinutes] = useState(6);
-    const[seconds, setSeconds] = useState(50);
+interface TimerProps extends PropsWithChildren{
+    minutes: number;
+    seconds: number;
+}
+const Timer:FC<TimerProps> = (props) => {
+    const[minutes, setMinutes] = useState(props.minutes);
+    const[seconds, setSeconds] = useState(props.seconds);
     const [timerOn, setTimerOn] = useState(false);
 
 
@@ -25,7 +29,7 @@ const Timer = () => {
                 
                     setTimerOn(false);
                }
-            },10);
+            },1000);
         }
         else{
             window.clearInterval(id!);
