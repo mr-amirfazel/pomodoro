@@ -9,7 +9,7 @@ import GlassItem from './GlassItem';
 const Header:FC = ():JSX.Element => {
     return (
     <header className="w-full">
-        <div className='w-full flex justify-between items-center h-[100px] px-3'>
+        <div className='w-full flex justify-between items-center h-[70px] px-3 border-b-2 border-slate-600 mb-6'>
             {/* icon */}
             <HeaderItem>
                 <MdTimer />
