@@ -2,7 +2,7 @@ import React, {useState, useEffect, PropsWithChildren, FC} from "react";
 import DigitCard from './digitCard';
 import {digitArray} from "../../utils/utils";
 
-import Button from "../button/button";
+import Button from "../Base/button/button";
 
 interface TimerProps extends PropsWithChildren{
     minutes: number;
