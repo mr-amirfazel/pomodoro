@@ -1,4 +1,6 @@
 import React, {useState, useEffect, PropsWithChildren, FC} from "react";
+import DigitCard from './digitCard';
+import {digitArray} from "../../utils/utils";
 
 import Button from "../button/button";
 
@@ -49,11 +51,16 @@ const Timer:FC<TimerProps> = (props) => {
         if (time<10)
             return `0${time}`;
         else
-            return time
+            return `${time}`
     }
     return (
     <>
-    <p>{string_builder(minutes)} : {string_builder(seconds)}</p>
+    {/* <p>{string_builder(minutes)} : {string_builder(seconds)}</p> */}
+    <div className="flex gap-2 py-1 w-full justify-center items-center">
+        {digitArray(minutes).map((number, index) => <DigitCard key={index} digit = {number} />)}
+        <DigitCard digit={":"} />
+        {digitArray(seconds).map((number, index) => <DigitCard key={index} digit = {number} />)}
+    </div>
     <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
     </>
         );
