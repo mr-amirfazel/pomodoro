@@ -12,7 +12,9 @@ const Button: FunctionComponent<PropsWithChildren<buttonProps>> = (props) => {
         props.onClick();
     }
 
-    return(<button onClick={onClick} className={classes.button}>
+    return(<button onClick={onClick}
+     className={classes.button}
+     >
         {props.children}
     </button>)
 

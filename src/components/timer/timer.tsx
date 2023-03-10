@@ -1,16 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, PropsWithChildren, FC} from "react";
+import DigitCard from './digitCard';
+import {digitArray} from "../../utils/utils";
 
 import Button from "../button/button";
 
-const Timer = () => {
-    const[minutes, setMinutes] = useState(6);
-    const[seconds, setSeconds] = useState(50);
+interface TimerProps extends PropsWithChildren{
+    minutes: number;
+    seconds: number;
+}
+const Timer:FC<TimerProps> = (props) => {
+    const[minutes, setMinutes] = useState(props.minutes);
+    const[seconds, setSeconds] = useState(props.seconds);
     const [timerOn, setTimerOn] = useState(false);
 
 
 
     useEffect(() => {
-        document.title = `${string_builder(minutes)}:${string_builder(seconds)}`;
+        document.title = `${minutes}:${seconds}`;
         let id:number;
         if (timerOn) {
             id= window.setInterval(() => {
@@ -25,7 +31,7 @@ const Timer = () => {
                 
                     setTimerOn(false);
                }
-            },10);
+            },1000);
         }
         else{
             window.clearInterval(id!);
@@ -40,16 +46,13 @@ const Timer = () => {
        setTimerOn(prev => !prev);
     }
 
-    const string_builder = (time: number) =>
-    {
-        if (time<10)
-            return `0${time}`;
-        else
-            return time
-    }
     return (
     <>
-    <p>{string_builder(minutes)} : {string_builder(seconds)}</p>
+    <div className="flex gap-2 py-1 w-full justify-center items-center">
+        {digitArray(minutes).map((number, index) => <DigitCard key={index} digit = {number} />)}
+        <DigitCard digit={":"} />
+        {digitArray(seconds).map((number, index) => <DigitCard key={index} digit = {number} />)}
+    </div>
     <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
     </>
         );
