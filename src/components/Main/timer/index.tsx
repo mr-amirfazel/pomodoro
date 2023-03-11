@@ -47,8 +47,8 @@ const Timer:FC<TimerProps> = (props) => {
     }
 
     return (
-    <div>
-    <div className="flex gap-2 py-1 w-full  justify-center items-center">
+    <div className="flex flex-col gap-10 items-center justify-center">
+    <div className="flex gap-2 py-1  mx-auto justify-center items-center">
         <div className="flex gap-[.1rem]">
         {digitArray(minutes).map((number, index) => <DigitCard key={index} digit = {number} />)}
         </div>
@@ -57,7 +57,9 @@ const Timer:FC<TimerProps> = (props) => {
         {digitArray(seconds).map((number, index) => <DigitCard key={index} digit = {number} />)}
         </div>
     </div>
-    <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
+        <div className="p-3 w-full">
+            <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
+        </div>
     </div>
         );
 }
