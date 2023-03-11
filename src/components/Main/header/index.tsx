@@ -1,10 +1,7 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, FC, useRef, useState } from "react"
+import {FC, useRef} from "react"
 
 const MainHeader:FC =()=>{
 
-    // const [focusButton, setFocusButton] = useState(false);
-    // const [ShortBreakButton, setShortBreakButton] = useState(false);
-    // const [LongBreakButton, setLongBreakButton] = useState(false);
 
     const focusRef = useRef<any>();
     const shortBreakRef = useRef<any>();
