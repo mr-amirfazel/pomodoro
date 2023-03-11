@@ -2,14 +2,17 @@ import React from 'react';
 import './App.css';
 import LayOut from './components/Layout';
 import Main from './components/Main';
+import { AppContextProvider } from './context/store';
 
 
 function App() {
   return (
     <div className="App">
-      <LayOut>
-        <Main />
-      </LayOut>
+      <AppContextProvider>
+        <LayOut>
+          <Main />
+        </LayOut>
+      </AppContextProvider>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import React, {useState, useEffect, PropsWithChildren, FC} from "react";
 import DigitCard from './digitCard';
 import {digitArray} from "../../../utils/utils";
 
+
 import Button from "../../Base/button/button";
 
 interface TimerProps extends PropsWithChildren{
@@ -14,6 +15,7 @@ const Timer:FC<TimerProps> = (props) => {
     const [timerOn, setTimerOn] = useState(false);
 
 
+    
 
     useEffect(() => {
         document.title = `${minutes}:${seconds}`;
