@@ -48,7 +48,7 @@ const Timer:FC<TimerProps> = (props) => {
 
     return (
     <div>
-    <div className="flex gap-2 py-1 w-full justify-center items-center">
+    <div className="flex gap-2 py-1 w-full  justify-center items-center">
         <div className="flex gap-[.1rem]">
         {digitArray(minutes).map((number, index) => <DigitCard key={index} digit = {number} />)}
         </div>

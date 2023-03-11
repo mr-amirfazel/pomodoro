@@ -7,7 +7,7 @@ interface digitCardProps extends PropsWithChildren{
 const DigitCard:FC<digitCardProps> = ({digit}) => {
     return(
         <div className="h-[200px] w-[100px] flex items-center justify-center bg-red-400 rounded">
-            <h1 className="text-3xl font-bold">{digit}</h1>
+            <h1 className="text-3xl font-bold text-slate-200">{digit}</h1>
         </div>
     )
 }
