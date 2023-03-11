@@ -14,7 +14,7 @@ const MainHeader:FC =()=>{
 
     const handleClick = (ref: React.MutableRefObject<any>) => {
             refs.forEach(ref => {ref.current.style.backgroundColor = ''; ref.current.style.fontSize = ''; ref.current.style.fontWeight = '';});
-            ref.current.style.backgroundColor = '#cdd0d470';
+            ref.current.style.backgroundColor = '#97cacf99';
             ref.current.style.fontWeight = 'bold';
     }
 
