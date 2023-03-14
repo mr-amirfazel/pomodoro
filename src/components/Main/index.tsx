@@ -32,7 +32,6 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
         <div className="bg-[#cdd0d470] flex flex-col gap-2 w-[85%] mx-auto rounded">
             <MainHeader clickHandler = {headerClickHandler} />
             <Timer minutes={minutes} seconds={seconds} setMinutes={setMinutes} setSeconds={setSeconds}/>
-            <p>{state.timer.timerMode}</p>
         </div>
     </div>
     );
