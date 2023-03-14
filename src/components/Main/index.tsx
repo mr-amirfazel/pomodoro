@@ -1,25 +1,34 @@
-import { FC, PropsWithChildren, useContext, useState } from "react";
+import { FC, PropsWithChildren, useContext, useEffect, useState } from "react";
 import MainHeader from "./header";
 import Timer from "./timer";
 import { AppContext } from "../../context/store";
+import { timerStates } from "../../constants/timerConstants";
+import { TimerActionTypes, TimerState } from "../../@types/context/context.types";
 
 
 const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const state = useContext(AppContext).state;
-    const dispatch = useContext(AppContext).dispatch;
 
     const[minutes, setMinutes] = useState<number>(60);
     const[seconds, setSeconds] = useState<number>(0);
 
 
     const headerClickHandler = (mode:string) => {
-        dispatch({
-            type:mode
-        })
-            setMinutes(state.timer.minutes);
-            setSeconds(state.timer.seconds);
+
+        let timerState: TimerState;
+
+            
+        timerState = timerStates.filter(item => item.timerMode === mode)[0]
+        
+        console.log(timerState.minutes, timerState.seconds)
+        setMinutes(timerState.minutes);
+        setSeconds(timerState.seconds);
     }
+
+    useEffect(()=>{
+        console.log('aha')
+    }, [state])
 
     
 

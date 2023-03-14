@@ -1,48 +1,60 @@
-import {FC, useEffect, useRef, useContext, PropsWithChildren} from "react"
+import {
+  FC,
+  useContext,
+  PropsWithChildren,
+  useState,
+} from "react";
 import { TimerActionTypes } from "../../../@types/context/context.types";
 import { AppContext } from "../../../context/store";
+import { timerStates } from "../../../constants/timerConstants";
 
 interface MainHeaderProps extends PropsWithChildren {
-    clickHandler: any;
+  clickHandler: any;
 }
 
-const MainHeader:FC<MainHeaderProps> =({clickHandler})=>{
+const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
+  const changeMode = useContext(AppContext).changeMode;
 
-    const dispatch = useContext(AppContext).dispatch;
-    const state = useContext(AppContext).state;
+  const [modes, setModes] = useState(timerStates);
 
-    const focusRef = useRef<any>();
-    const shortBreakRef = useRef<any>();
-    const longBreakRef = useRef<any>();
+  const selectedButtonStyles = "bg-[#97cacf99] font-bold";
 
-    const refs = [focusRef, shortBreakRef, longBreakRef];
+  const handleClick = (id: string, mode:string) => {
+    changeMode(mode)
+    clickHandler(mode)
+    setModes((modes) =>
+      modes.map((item) => {
+        return { ...item, isSelected: false };
+      })
+    );
+    setModes((modes) =>
+      modes.map((item) => {
+        return item.id == id
+          ? { ...item, isSelected: true }
+          : { ...item, isSelected: false };
+      })
+    );
 
-    const handleClick = (ref: React.MutableRefObject<any>, mode:string) => {
-        console.log(mode)
-        dispatch({
-            type:mode
-        })
-            refs.forEach(ref => {ref.current.style.backgroundColor = ''; ref.current.style.fontSize = ''; ref.current.style.fontWeight = '';});
-            ref.current.style.backgroundColor = '#97cacf99';
-            ref.current.style.fontWeight = 'bold';
-            console.log('cur', state.timer);
-            clickHandler(mode)
-    }
+    
+  };
 
-    useEffect(()=>{
-        focusRef.current.style.backgroundColor = '#97cacf99';
-        focusRef.current.style.fontWeight = 'bold';
-        
-    }
-    ,[])
+  return (
+    <div className="flex justify-around items-center mx-auto text-xl text-stone-700 p-6">
+      {modes.map((item) => (
+        <button
+          className={`rounded-lg p-2 transition-all ease-in ${
+            item.isSelected && selectedButtonStyles
+          }`}
+          key={item.id}
+          onClick={() => {
+            handleClick(item.id, item.timerMode);
+          }}
+        >
+          {item.timerMode}
+        </button>
+      ))}
+    </div>
+  );
+};
 
-    return(
-        <div className="flex justify-around items-center mx-auto text-xl text-stone-700 p-6">
-            <button className="rounded-lg p-2 transition-all ease-in " ref={focusRef} onClick={() => {handleClick(focusRef, TimerActionTypes.FOCUS_MODE)}}>Focus</button>
-            <button className="rounded-lg p-2 transition-all ease-in " ref={shortBreakRef} onClick={()=> {handleClick(shortBreakRef, TimerActionTypes.SHORT_BREAK_MODE)}}>Short break</button>
-            <button className="rounded-lg p-2 transition-all ease-in " ref={longBreakRef} onClick={()=> {handleClick(longBreakRef, TimerActionTypes.LONG_BREAK_MODE)}}>Long break</button>
-        </div>
-    )
-}
-
-export default MainHeader
+export default MainHeader;
