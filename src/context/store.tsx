@@ -10,7 +10,6 @@ const InitialState: AppState = {
         timerMode: TimerActionTypes.FOCUS_MODE,
         backGroundColor: "#fc7f03",
         id:"1234",
-        isSelected: true,
     },
 }
 

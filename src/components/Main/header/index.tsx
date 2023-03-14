@@ -13,6 +13,7 @@ interface MainHeaderProps extends PropsWithChildren {
 
 const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
   const changeMode = useContext(AppContext).changeMode;
+  const state = useContext(AppContext).state;
 
   const [modes, setModes] = useState(timerStates);
 
@@ -23,7 +24,7 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
     clickHandler(mode)
     setModes((modes) =>
       modes.map((item) => {
-        return { ...item, isSelected: false };
+        return { ...item};
       })
     );
     setModes((modes) =>
@@ -42,7 +43,7 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
       {modes.map((item) => (
         <button
           className={`rounded-lg p-2 transition-all ease-in ${
-            item.isSelected && selectedButtonStyles
+            item.timerMode === state.timer.timerMode && selectedButtonStyles
           }`}
           key={item.id}
           onClick={() => {

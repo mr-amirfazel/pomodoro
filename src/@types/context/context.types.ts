@@ -4,7 +4,6 @@ export type TimerState = {
     timerMode: string,
     backGroundColor: string,
     id: string,
-    isSelected: Boolean
 } 
 
 export type AppState = {
