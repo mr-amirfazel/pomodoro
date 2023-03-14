@@ -3,6 +3,7 @@ export type TimerState = {
     minutes: number,
     timerMode: string,
     backGroundColor: string,
+    id: string
 } 
 
 export type AppState = {
@@ -10,9 +11,9 @@ export type AppState = {
 }
 
 export enum TimerActionTypes {
-   FOCUS_MODE= "focus_mode",
-   SHORT_BREAK_MODE = "short_break_mode",
-   LONG_BREAK_MODE= "long_break_mode",
+   FOCUS_MODE= "Focus",
+   SHORT_BREAK_MODE = "Short break",
+   LONG_BREAK_MODE= "Long break",
    THICK_SECOND = "thick_second",
    THICK_MINUTES= "thick_minutes",
 }

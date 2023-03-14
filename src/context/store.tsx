@@ -1,5 +1,6 @@
 import React, { createContext, useReducer, useState } from "react";
 import { AppState, TimerActionTypes, TimerState } from "../@types/context/context.types";
+import { timerStates } from "../constants/timerConstants";
 
 const InitialState: AppState = {
     timer:{
@@ -7,6 +8,7 @@ const InitialState: AppState = {
         minutes: 60,
         timerMode: TimerActionTypes.FOCUS_MODE,
         backGroundColor: "#49e673",
+        id:"1234"
     },
 }
 
