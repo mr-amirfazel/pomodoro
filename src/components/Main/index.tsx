@@ -12,7 +12,7 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const[minutes, setMinutes] = useState<number>(60);
     const[seconds, setSeconds] = useState<number>(0);
-    const [bgColor, setBgColor] = useState("#d25ff5");
+    const [bgColor, setBgColor] = useState("#fc7f03");
 
 
 
@@ -38,7 +38,7 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     return(
     <div style={{backgroundColor: bgColor}}  className={`h-[calc(100vh-70px)] 
-     pt-5 `}>
+     pt-5 transition-all ease-linear`}>
         <div className="bg-[#cdd0d470] flex flex-col gap-2 w-[85%] mx-auto rounded">
             <MainHeader clickHandler = {headerClickHandler} />
             <Timer minutes={minutes} seconds={seconds} setMinutes={setMinutes} setSeconds={setSeconds}/>

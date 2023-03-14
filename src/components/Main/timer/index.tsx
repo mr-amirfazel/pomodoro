@@ -62,7 +62,7 @@ const Timer:FC<TimerProps> = ({minutes, seconds, setMinutes, setSeconds}) => {
         {digitArray(seconds).map((number, index) => <DigitCard key={index} digit = {number} />)}
         </div>
     </div>
-        <div className="p-3 w-full">
+        <div className="p-3 w-full ">
             <Button onClick={clickHandler}>{timerOn ? `Stop` : `Start`}</Button>
         </div>
     </div>

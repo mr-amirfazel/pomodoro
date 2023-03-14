@@ -5,9 +5,11 @@
     border-radius: 5px ;
     font-size: larger;
     text-transform: uppercase;
+    border: 3px solid black;
 }
 .button:hover{
     cursor: pointer;
     background-color: black;
+    border: rgb(48, 48, 48);
     color: white;
 }
