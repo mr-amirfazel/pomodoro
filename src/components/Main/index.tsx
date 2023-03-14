@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useContext, useState } from "react";
+import { FC, PropsWithChildren, useContext, useEffect, useState } from "react";
 import MainHeader from "./header";
 import Timer from "./timer";
 import { AppContext } from "../../context/store";
@@ -7,19 +7,21 @@ import { AppContext } from "../../context/store";
 const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const state = useContext(AppContext).state;
-    const dispatch = useContext(AppContext).dispatch;
+    // const dispatch = useContext(AppContext).setState;
 
     const[minutes, setMinutes] = useState<number>(60);
     const[seconds, setSeconds] = useState<number>(0);
 
 
     const headerClickHandler = (mode:string) => {
-        dispatch({
-            type:mode
-        })
+       
             setMinutes(state.timer.minutes);
             setSeconds(state.timer.seconds);
     }
+
+    useEffect(()=>{
+        console.log('aha')
+    }, [state])
 
     
 

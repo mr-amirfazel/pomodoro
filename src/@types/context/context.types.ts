@@ -3,7 +3,8 @@ export type TimerState = {
     minutes: number,
     timerMode: string,
     backGroundColor: string,
-    id: string
+    id: string,
+    isSelected: Boolean
 } 
 
 export type AppState = {

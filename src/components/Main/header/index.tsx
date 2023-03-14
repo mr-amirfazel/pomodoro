@@ -13,18 +13,16 @@ interface MainHeaderProps extends PropsWithChildren {
 }
 
 const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
-  const dispatch = useContext(AppContext).dispatch;
+  const changeMode = useContext(AppContext).changeMode;
   const state = useContext(AppContext).state;
 
-  const [modes, setModes] = useState(
-    timerStates.map((item) => {
-      return { ...item, isSelected: false };
-    })
-  );
+  const [modes, setModes] = useState(timerStates);
 
   const selectedButtonStyles = "bg-[#97cacf99] font-bold";
 
-  const handleClick = (id: string) => {
+  const handleClick = (id: string, mode:string) => {
+    changeMode(mode)
+    console.log(mode)
     // console.log(mode)
     // dispatch({
     //     type:mode
@@ -46,6 +44,8 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
           : { ...item, isSelected: false };
       })
     );
+
+    
   };
 
   return (
@@ -57,7 +57,7 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
           }`}
           key={item.id}
           onClick={() => {
-            handleClick(item.id);
+            handleClick(item.id, item.timerMode);
           }}
         >
           {item.timerMode}
