@@ -17,12 +17,10 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
         dispatch({
             type:mode
         })
-            // setTimeout(() => {console.log('Im a nigger', state.timer.timerMode, state.timer.minutes, state.timer.seconds)}, 5000)
             setMinutes(state.timer.minutes);
             setSeconds(state.timer.seconds);
     }
 
-    // useEffect(() => {headerClickHandler()},[state.timer.timerMode, state.timer.minutes, state.timer.seconds])
     
 
     return(
