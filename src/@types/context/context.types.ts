@@ -1,11 +1,13 @@
 export type TimerState = {
-    timer:{
-        seconds: number,
-        minutes: number,
-        timerMode: string,
-        backGroundColor: string,
-    }
+    seconds: number,
+    minutes: number,
+    timerMode: string,
+    backGroundColor: string,
 } 
+
+export type AppState = {
+    timer: TimerState,
+}
 
 export enum TimerActionTypes {
    FOCUS_MODE= "focus_mode",

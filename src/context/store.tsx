@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useState } from "react";
-import { TimerActionTypes, TimerState } from "../@types/context/context.types";
+import { AppState, TimerActionTypes, TimerState } from "../@types/context/context.types";
 
-const InitialState: TimerState = {
+const InitialState: AppState = {
     timer:{
         seconds: 0,
         minutes: 60,
@@ -11,7 +11,7 @@ const InitialState: TimerState = {
 }
 
 const AppContext = createContext<{
-  state: TimerState,
+  state: AppState,
   dispatch: React.Dispatch<ContextAction<any, any>>;
 }>({
   state: InitialState,
@@ -23,7 +23,7 @@ type ContextAction<T, K> = {
     payload?: K;
   };
 
-const timerReducer = (state: TimerState, action: ContextAction<TimerActionTypes, any>) => {
+const timerReducer = (state: AppState, action: ContextAction<TimerActionTypes, any>) => {
     switch (action.type)
         {
             case TimerActionTypes.FOCUS_MODE:

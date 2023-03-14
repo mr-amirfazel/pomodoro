@@ -25,7 +25,7 @@ const MainHeader:FC<MainHeaderProps> =({clickHandler})=>{
             refs.forEach(ref => {ref.current.style.backgroundColor = ''; ref.current.style.fontSize = ''; ref.current.style.fontWeight = '';});
             ref.current.style.backgroundColor = '#97cacf99';
             ref.current.style.fontWeight = 'bold';
-            console.log('cur', state.timer);
+            // console.log('cur', state.timer);
             clickHandler(mode)
     }
 
