@@ -19,12 +19,12 @@ const MainHeader:FC<MainHeaderProps> =({clickHandler})=>{
 
     const handleClick = (ref: React.MutableRefObject<any>, mode:string) => {
         console.log(mode)
+        dispatch({
+            type:mode
+        })
             refs.forEach(ref => {ref.current.style.backgroundColor = ''; ref.current.style.fontSize = ''; ref.current.style.fontWeight = '';});
             ref.current.style.backgroundColor = '#97cacf99';
             ref.current.style.fontWeight = 'bold';
-            dispatch({
-                type:mode
-            })
             console.log('cur', state.timer);
             clickHandler(mode)
     }
