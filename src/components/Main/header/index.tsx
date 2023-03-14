@@ -22,16 +22,7 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
 
   const handleClick = (id: string, mode:string) => {
     changeMode(mode)
-    console.log(mode)
-    // console.log(mode)
-    // dispatch({
-    //     type:mode
-    // })
-    //     refs.forEach(ref => {ref.current.style.backgroundColor = ''; ref.current.style.fontSize = ''; ref.current.style.fontWeight = '';});
-    //     ref.current.style.backgroundColor = '#97cacf99';
-    //     ref.current.style.fontWeight = 'bold';
-    //     // console.log('cur', state.timer);
-    //     clickHandler(mode)
+    clickHandler(mode)
     setModes((modes) =>
       modes.map((item) => {
         return { ...item, isSelected: false };
