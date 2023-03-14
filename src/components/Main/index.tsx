@@ -48,7 +48,7 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
         <div className="bg-[#cdd0d470] flex flex-col gap-2 w-[85%] mx-auto rounded">
             <MainHeader clickHandler = {headerClickHandler} />
             <Timer minutes={minutes} seconds={seconds} setMinutes={setMinutes} setSeconds={setSeconds}/>
-            {settingIsShown && <SettingModal />}
+            {settingIsShown && <SettingModal onClose={()=>setSettingIsShown(state => !state)}/>}
         </div>
     </div>
     );
