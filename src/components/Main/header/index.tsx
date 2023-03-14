@@ -4,7 +4,6 @@ import {
   PropsWithChildren,
   useState,
 } from "react";
-import { TimerActionTypes } from "../../../@types/context/context.types";
 import { AppContext } from "../../../context/store";
 import { timerStates } from "../../../constants/timerConstants";
 

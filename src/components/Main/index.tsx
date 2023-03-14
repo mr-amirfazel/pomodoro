@@ -1,9 +1,9 @@
-import { FC, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { FC, PropsWithChildren, useContext, useEffect, useRef, useState } from "react";
 import MainHeader from "./header";
 import Timer from "./timer";
 import { AppContext } from "../../context/store";
 import { timerStates } from "../../constants/timerConstants";
-import { TimerActionTypes, TimerState } from "../../@types/context/context.types";
+import { TimerState } from "../../@types/context/context.types";
 
 
 const Main:FC<PropsWithChildren> = ():JSX.Element => {
@@ -12,6 +12,8 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const[minutes, setMinutes] = useState<number>(60);
     const[seconds, setSeconds] = useState<number>(0);
+    const [bgColor, setBgColor] = useState("#d25ff5");
+
 
 
     const headerClickHandler = (mode:string) => {
@@ -24,17 +26,18 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
         console.log(timerState.minutes, timerState.seconds)
         setMinutes(timerState.minutes);
         setSeconds(timerState.seconds);
+        
+        setBgColor(timerState.backGroundColor)
     }
 
     useEffect(()=>{
-        console.log('aha')
+        console.log('mode', state.timer.timerMode)
+        console.log(bgColor)
     }, [state])
 
-    
 
     return(
-    <div className={`h-[calc(100vh-70px)] 
-     bg-[${state.timer.backGroundColor}]
+    <div style={{backgroundColor: bgColor}}  className={`h-[calc(100vh-70px)] 
      pt-5 `}>
         <div className="bg-[#cdd0d470] flex flex-col gap-2 w-[85%] mx-auto rounded">
             <MainHeader clickHandler = {headerClickHandler} />
