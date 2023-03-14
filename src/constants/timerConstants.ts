@@ -2,8 +2,8 @@ import {TimerActionTypes, TimerState} from '../@types/context/context.types';
 export const timerStates: TimerState[] = [
     {
         timerMode: TimerActionTypes.FOCUS_MODE,
-        minutes:60,
-        seconds:0,
+        minutes:0,
+        seconds:6,
         backGroundColor:"#fc7f03",
         id:"1",
         isSelected:true,

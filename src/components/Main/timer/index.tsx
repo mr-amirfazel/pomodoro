@@ -17,7 +17,7 @@ const Timer:FC<TimerProps> = ({minutes, seconds, setMinutes, setSeconds}) => {
     
     const [timerOn, setTimerOn] = useState(false);
 
-
+    const nextMode = useContext(AppContext).nextMode;
     
 
     useEffect(() => {
@@ -35,6 +35,11 @@ const Timer:FC<TimerProps> = ({minutes, seconds, setMinutes, setSeconds}) => {
                else{
                 
                     setTimerOn(false);
+                    if (minutes == 0 && seconds == 0)
+                        {
+                            nextMode();
+                            console.log('tadaaaa')
+                        }
                }
             },1000);
         }

@@ -10,8 +10,8 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const state = useContext(AppContext).state;
 
-    const[minutes, setMinutes] = useState<number>(60);
-    const[seconds, setSeconds] = useState<number>(0);
+    const[minutes, setMinutes] = useState<number>(timerStates[0].minutes);
+    const[seconds, setSeconds] = useState<number>(timerStates[0].seconds);
     const [bgColor, setBgColor] = useState("#fc7f03");
 
 
@@ -31,8 +31,11 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
     }
 
     useEffect(()=>{
-        console.log('mode', state.timer.timerMode)
-        console.log(bgColor)
+        let timerState: TimerState;
+        timerState = timerStates.filter(item => item.timerMode === state.timer.timerMode)[0]
+        setMinutes(timerState.minutes);
+        setSeconds(timerState.seconds);
+        setBgColor(timerState.backGroundColor)
     }, [state])
 
 
