@@ -33,8 +33,8 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
     useEffect(()=>{
         let timerState: TimerState;
         timerState = timerStates.filter(item => item.timerMode === state.timer.timerMode)[0]
-        setMinutes(timerState.minutes);
-        setSeconds(timerState.seconds);
+        setMinutes(state.timer.minutes);
+        setSeconds(state.timer.seconds);
         setBgColor(timerState.backGroundColor)
     }, [state])
 
