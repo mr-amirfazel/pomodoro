@@ -14,7 +14,6 @@ interface MainHeaderProps extends PropsWithChildren {
 
 const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
   const changeMode = useContext(AppContext).changeMode;
-  const state = useContext(AppContext).state;
 
   const [modes, setModes] = useState(timerStates);
 

@@ -5,7 +5,6 @@ import { AppContext } from "../../../context/store";
 
 
 import Button from "../../Base/button/button";
-import { TimerActionTypes } from "../../../@types/context/context.types";
 
 interface TimerProps extends PropsWithChildren{
     minutes: number;

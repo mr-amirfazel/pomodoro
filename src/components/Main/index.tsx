@@ -9,7 +9,6 @@ import { TimerActionTypes, TimerState } from "../../@types/context/context.types
 const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const state = useContext(AppContext).state;
-    // const dispatch = useContext(AppContext).setState;
 
     const[minutes, setMinutes] = useState<number>(60);
     const[seconds, setSeconds] = useState<number>(0);
