@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useContext, useEffect, useState } from "react";
+import { FC, PropsWithChildren, useContext, useState } from "react";
 import MainHeader from "./header";
 import Timer from "./timer";
 import { AppContext } from "../../context/store";
