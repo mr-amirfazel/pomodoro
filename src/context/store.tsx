@@ -15,7 +15,6 @@ const InitialState: AppState = {
 
 const AppContext = createContext<{
   state: AppState,
-  // setState: any;
   changeMode: Function
 }>({
   state: InitialState,
@@ -26,7 +25,6 @@ interface AppContextProviderProps extends React.PropsWithChildren {}
 const AppContextProvider: React.FunctionComponent<AppContextProviderProps> = ({
     children,
   }): JSX.Element => {
-    // const [state, dispatch] = useReducer(timerReducer, InitialState); // flux
     const changeMode = (mode: string) => {
       setState(state => {return {...state, timer:{...state.timer, timerMode: mode}}})
     }
