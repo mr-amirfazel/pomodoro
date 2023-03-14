@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useContext } from "react";
+import { FC, PropsWithChildren, useContext, useEffect, useState } from "react";
 import MainHeader from "./header";
 import Timer from "./timer";
 import { AppContext } from "../../context/store";
@@ -7,12 +7,31 @@ import { AppContext } from "../../context/store";
 const Main:FC<PropsWithChildren> = ():JSX.Element => {
 
     const state = useContext(AppContext).state;
+    const dispatch = useContext(AppContext).dispatch;
+
+    const[minutes, setMinutes] = useState<number>(60);
+    const[seconds, setSeconds] = useState<number>(0);
+
+
+    const headerClickHandler = (mode:string) => {
+        dispatch({
+            type:mode
+        })
+            // setTimeout(() => {console.log('Im a nigger', state.timer.timerMode, state.timer.minutes, state.timer.seconds)}, 5000)
+            setMinutes(state.timer.minutes);
+            setSeconds(state.timer.seconds);
+    }
+
+    // useEffect(() => {headerClickHandler()},[state.timer.timerMode, state.timer.minutes, state.timer.seconds])
+    
 
     return(
-    <div className="h-[calc(100vh-70px)]  bg-blue-400 pt-5">
+    <div className={`h-[calc(100vh-70px)] 
+     bg-[${state.timer.backGroundColor}]
+     pt-5 `}>
         <div className="bg-[#cdd0d470] flex flex-col gap-2 w-[85%] mx-auto rounded">
-            <MainHeader />
-            <Timer minutes={state.timer.minutes} seconds={state.timer.seconds}/>
+            <MainHeader clickHandler = {headerClickHandler} />
+            <Timer minutes={minutes} seconds={seconds} setMinutes={setMinutes} setSeconds={setSeconds}/>
         </div>
     </div>
     );

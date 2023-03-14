@@ -1,17 +1,21 @@
-import React, {useState, useEffect, PropsWithChildren, FC} from "react";
+import React, {useState, useEffect, PropsWithChildren, FC, useContext} from "react";
 import DigitCard from './digitCard';
 import {digitArray} from "../../../utils/utils";
+import { AppContext } from "../../../context/store";
 
 
 import Button from "../../Base/button/button";
+import { TimerActionTypes } from "../../../@types/context/context.types";
 
 interface TimerProps extends PropsWithChildren{
     minutes: number;
     seconds: number;
+    setMinutes:any,
+    setSeconds:any,
 }
-const Timer:FC<TimerProps> = (props) => {
-    const[minutes, setMinutes] = useState(props.minutes);
-    const[seconds, setSeconds] = useState(props.seconds);
+const Timer:FC<TimerProps> = ({minutes, seconds, setMinutes, setSeconds}) => {
+
+    
     const [timerOn, setTimerOn] = useState(false);
 
 
@@ -23,10 +27,10 @@ const Timer:FC<TimerProps> = (props) => {
         if (timerOn) {
             id= window.setInterval(() => {
                 if(seconds > 0) {
-                    setSeconds(seconds => seconds-1);
+                    setSeconds(seconds-1);
                }
                else if (minutes > 0) {
-                    setMinutes(minutes => minutes-1);
+                    setMinutes(minutes-1);
                     setSeconds(59);
                }
                else{
