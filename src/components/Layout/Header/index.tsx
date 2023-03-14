@@ -14,7 +14,7 @@ const Header: FC = (): JSX.Element => {
         <Link to='/'>
           <HeaderItem>
            <MdTimer />
-            <h3 className="font-bold text-md">Pomodoro timer</h3>
+            <h3 className="font-bold text-md hidden md:inline-block">Pomodoro timer</h3>
           </HeaderItem>
           </Link>
         {/* header bars */}
@@ -22,13 +22,13 @@ const Header: FC = (): JSX.Element => {
           <GlassItem>
             <HeaderItem>
               <AiFillSetting />
-              <h3 className="font-bold text-md">Setting</h3>
+              <h3 className="font-bold text-md hidden md:inline-block">Setting</h3>
             </HeaderItem>
           </GlassItem>
           <GlassItem>
             <HeaderItem>
               <SiGoogleanalytics />
-              <h3 className="font-bold text-md">Reports</h3>
+              <h3 className="font-bold text-md hidden md:inline-block">Reports</h3>
             </HeaderItem>
           </GlassItem>
         </div>

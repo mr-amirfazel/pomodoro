@@ -1,5 +1,5 @@
 .button{
-    width: 25%;
+    width: 50%;
     height: 40px;
     background-color:transparent;
     border-radius: 5px ;
@@ -12,4 +12,10 @@
     background-color: black;
     border: rgb(48, 48, 48);
     color: white;
+}
+
+@media screen and (min-width: 768px) {
+    .button {
+        width: 25%;
+    }
 }
