@@ -1,6 +1,6 @@
 import React, {useState, useEffect, PropsWithChildren, FC, useContext} from "react";
 import DigitCard from './digitCard';
-import {digitArray} from "../../../utils/utils";
+import {digitArray, stringBuilder} from "../../../utils/utils";
 import { AppContext } from "../../../context/store";
 
 
@@ -22,7 +22,7 @@ const Timer:FC<TimerProps> = ({minutes, seconds, setMinutes, setSeconds}) => {
     
 
     useEffect(() => {
-        document.title = `${minutes}:${seconds}`;
+        document.title = `${stringBuilder(minutes)}:${stringBuilder(seconds)}`;
         let id:number;
         if (timerOn) {
             id= window.setInterval(() => {

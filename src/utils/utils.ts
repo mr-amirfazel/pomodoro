@@ -10,3 +10,9 @@ export const digitArray = (timeEl: number): number[] =>{
     }
     return array.reverse();
 }
+
+export const stringBuilder = (digit:number):string =>{
+    if (digit<10)
+        return `0${digit}`;
+    return `${digit}`;
+}
