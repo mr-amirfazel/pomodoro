@@ -39,7 +39,7 @@ const Main:FC<PropsWithChildren> = ():JSX.Element => {
         setMinutes(state.timer.minutes);
         setSeconds(state.timer.seconds);
         setBgColor(timerState.backGroundColor)
-    }, [state])
+    }, [state, state.modesInfo])
 
 
     return(

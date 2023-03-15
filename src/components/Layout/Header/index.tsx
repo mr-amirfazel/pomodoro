@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import SettingModal from "../../Modals/SettingModal";
 
 const Header: FC = (): JSX.Element => {
-  const [settingIsShown, setSettingIsShown] = useState(true);
+  const [settingIsShown, setSettingIsShown] = useState(false);
 
   return (
     <header className="w-full">
