@@ -1,6 +1,7 @@
 import { FC, MouseEventHandler, PropsWithChildren, useContext } from "react";
 import { AiFillSetting, AiOutlineClose } from "react-icons/ai";
 import { TfiTimer } from "react-icons/tfi";
+import {FaCheck} from 'react-icons/fa';
 import HeaderItem from "../../Layout/Header/HeaderItem";
 import { AppContext } from "../../../context/store";
 import ModeInput from "./modeInput";
@@ -57,6 +58,10 @@ const SettingModal: FC<SettingModalProps> = ({ onClose }) => {
             />
           </span>
         </div>
+        <span className="flex cursor-pointer self-end items-center justify-around font-mono gap-1 bg-teal-800 text-yellow-100 p-3 rounded-md" onClick={onClose}>
+          <h4>DONE</h4>
+          <FaCheck />
+        </span>
       </div>
     </>
   );
