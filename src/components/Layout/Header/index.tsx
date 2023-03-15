@@ -14,7 +14,7 @@ const Header: FC = (): JSX.Element => {
         <Link to='/'>
           <HeaderItem>
            <MdTimer />
-            <h3 className="font-bold text-md hidden md:inline-block">Pomodoro timer</h3>
+          <h3 className="font-bold text-md hidden md:inline-block">Pomodoro timer</h3>
           </HeaderItem>
           </Link>
         {/* header bars */}
