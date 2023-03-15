@@ -9,8 +9,8 @@ interface SettingModalProps extends PropsWithChildren{
 const SettingModal:FC<SettingModalProps> = ({onClose}) => {
     return(
     <>
-    <div className={classes.backdrop} onClick={onClose}/>
-        <div className={classes.modal}>
+    <div className='fixed top-0 left-0 w-full h-[100vh] z-10 bg-[#000000bf]' onClick={onClose}/>
+        <div className='fixed top-[14vh] left-[20%] w-[60%] z-40 overflow-y-auto bg-yellow-200 rounded-t-md'>
            Salaaaaam
         </div>
     </>)
