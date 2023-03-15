@@ -8,8 +8,14 @@ export type TimerState = {
 
 export type AppState = {
     timer: TimerState,
+    modesInfo: ModesInfo
 }
 
+type ModesInfo = {
+    focus: { minutes: number, seconds: number },
+    short: { minutes: number, seconds: number },
+    long: { minutes: number, seconds: number },
+}
 export enum TimerActionTypes {
    FOCUS_MODE= "Focus",
    SHORT_BREAK_MODE = "Short break",

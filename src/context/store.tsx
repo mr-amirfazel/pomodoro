@@ -13,6 +13,12 @@ import {
 import { timerStates } from "../constants/timerConstants";
 import { getNextMode } from "../utils/utils";
 
+let InitialModeInfos = {
+  focus: { minutes: timerStates[0].minutes, seconds: timerStates[0].seconds },
+  short: { minutes: timerStates[1].minutes, seconds: timerStates[1].seconds },
+  long: { minutes: timerStates[2].minutes, seconds: timerStates[2].seconds },
+};
+
 const InitialState: AppState = {
   timer: {
     seconds: timerStates[0].seconds,
@@ -21,6 +27,8 @@ const InitialState: AppState = {
     backGroundColor: "#fc7f03",
     id: "1234",
   },
+  modesInfo: InitialModeInfos
+  
 };
 
 const AppContext = createContext<{
@@ -39,11 +47,7 @@ const AppContextProvider: React.FunctionComponent<AppContextProviderProps> = ({
 }): JSX.Element => {
   const [state, setState] = useState<AppState>(InitialState);
 
-  let InitialModeInfos = {
-    focus: { minutes: timerStates[0].minutes, seconds: timerStates[0].seconds },
-    short: { minutes: timerStates[1].minutes, seconds: timerStates[1].seconds },
-    long: { minutes: timerStates[2].minutes, seconds: timerStates[2].seconds },
-  };
+ 
 
   const [modesInfo, setModesInfo] = useState(InitialModeInfos);
 
