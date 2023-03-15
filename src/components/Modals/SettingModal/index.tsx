@@ -25,7 +25,7 @@ const SettingModal: FC<SettingModalProps> = ({ onClose }) => {
         className="fixed top-0 left-0 w-full h-[100vh] z-10 bg-[#000000bf]"
         onClick={onClose}
       />
-      <div className="fixed top-[14vh] left-[10%]  w-[80%] md:w-[60%] md:left-[20%]  z-40 overflow-y-auto bg-yellow-200 rounded-t-md flex flex-col gap-5 p-2">
+      <div className="fixed top-[14vh] left-[5%] w-[90%] md:w-[60%] md:left-[20%]  z-40 overflow-y-auto bg-yellow-200 rounded-t-md flex flex-col gap-5 p-2">
         <div className="flex justify-between items-center px-4">
           <HeaderItem>
             <AiFillSetting />
@@ -42,7 +42,7 @@ const SettingModal: FC<SettingModalProps> = ({ onClose }) => {
                 <TfiTimer />
                 <h3>Timer (minutes)</h3>
             </span>
-            <span className="flex items-center justify-evenly">
+            <span className="flex flex-col md:flex-row items-center justify-evenly gap-2">
                     <ModeInput value={state.modesInfo.focus.minutes} title={"focus"} mode={'focus'} onValueChange={changeModeValue}/>
                     <ModeInput value={state.modesInfo.short.minutes} title={"Short break"} mode={'short'} onValueChange={changeModeValue}/>
                     <ModeInput value={state.modesInfo.long.minutes} title={"Long Break"} mode={'long'} onValueChange={changeModeValue}/>
