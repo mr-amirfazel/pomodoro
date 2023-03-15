@@ -35,10 +35,12 @@ const AppContext = createContext<{
   state: AppState;
   changeMode: Function;
   nextMode: Function;
+  changeModeValue : Function;
 }>({
   state: InitialState,
   changeMode: () => null,
   nextMode: () => null,
+  changeModeValue: ()=> null,
 });
 
 interface AppContextProviderProps extends React.PropsWithChildren {}
@@ -47,9 +49,6 @@ const AppContextProvider: React.FunctionComponent<AppContextProviderProps> = ({
 }): JSX.Element => {
   const [state, setState] = useState<AppState>(InitialState);
 
- 
-
-  const [modesInfo, setModesInfo] = useState(InitialModeInfos);
 
   const changeMode = (mode: string) => {
     setState((state) => {
@@ -60,16 +59,16 @@ const AppContextProvider: React.FunctionComponent<AppContextProviderProps> = ({
           timerMode: mode,
           minutes:
             mode == TimerActionTypes.FOCUS_MODE
-              ? modesInfo.focus.minutes
+              ? state.modesInfo.focus.minutes
               : mode == TimerActionTypes.SHORT_BREAK_MODE
-              ? modesInfo.short.minutes
-              : modesInfo.long.minutes,
+              ? state.modesInfo.short.minutes
+              : state.modesInfo.long.minutes,
           seconds:
               mode == TimerActionTypes.FOCUS_MODE
-                ? modesInfo.focus.seconds
+                ? state.modesInfo.focus.seconds
                 : mode == TimerActionTypes.SHORT_BREAK_MODE
-                ? modesInfo.short.seconds
-                : modesInfo.long.seconds,
+                ? state.modesInfo.short.seconds
+                : state.modesInfo.long.seconds,
         },
       };
     });
@@ -80,8 +79,39 @@ const AppContextProvider: React.FunctionComponent<AppContextProviderProps> = ({
     changeMode(nextMd);
   };
 
+  const changeModeValue = (mode:string, minutes:number) => {
+      setState((state) => {
+        if (mode === 'focus')
+          return {
+            ...state,
+            modesInfo: {
+              ...state.modesInfo,
+              focus: { minutes: minutes, seconds: 0 }
+            }
+          };
+        else if (mode === 'short')
+          return {
+            ...state,
+            modesInfo: {
+              ...state.modesInfo,
+              short: { minutes: minutes, seconds: 0 }
+            }
+          };
+
+
+        else
+          return {
+            ...state,
+            modesInfo: {
+              ...state.modesInfo,
+              long: { minutes: minutes, seconds: 0 }
+            }
+          };
+      })
+  }
+
   return (
-    <AppContext.Provider value={{ state, changeMode, nextMode }}>
+    <AppContext.Provider value={{ state, changeMode, nextMode, changeModeValue }}>
       {children}
     </AppContext.Provider>
   );
