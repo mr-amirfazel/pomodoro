@@ -3,6 +3,9 @@ you might be familiar with pomodoro studying techinque. Its a way to manage stud
 as an student dealing with lots of subjects to study and also a front-end web developer I decided to create a web app which helps me study by providing myself a visual interface for pomodoro technique.
 Hope you enjoy it
 
+![ezgif-4-c8af731314](https://user-images.githubusercontent.com/78591315/225301868-c8242cf2-a7db-4a85-807a-27d488e1e44a.gif)
+![image](https://user-images.githubusercontent.com/78591315/225302018-99d7f616-6a28-4bfc-b927-0450cda501f8.png)
+![image](https://user-images.githubusercontent.com/78591315/225302085-772dc10e-cc46-4ccd-b03f-bf9e7fe630dd.png)
 
 
 
