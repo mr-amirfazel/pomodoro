@@ -1,14 +1,10 @@
 import React, {
   createContext,
-  Dispatch,
-  SetStateAction,
-  useReducer,
   useState,
 } from "react";
 import {
   AppState,
   TimerActionTypes,
-  TimerState,
 } from "../@types/context/context.types";
 import { timerStates } from "../constants/timerConstants";
 import { getNextMode } from "../utils/utils";
