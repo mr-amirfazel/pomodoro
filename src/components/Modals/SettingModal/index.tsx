@@ -1,6 +1,6 @@
 import { FC, MouseEventHandler, PropsWithChildren, useContext } from "react";
 import { AiFillSetting, AiOutlineClose } from "react-icons/ai";
-import { TfiTimer} from "react-icons/tfi";
+import { TfiTimer } from "react-icons/tfi";
 import HeaderItem from "../../Layout/Header/HeaderItem";
 import { AppContext } from "../../../context/store";
 import ModeInput from "./modeInput";
@@ -10,14 +10,8 @@ interface SettingModalProps extends PropsWithChildren {
 }
 
 const SettingModal: FC<SettingModalProps> = ({ onClose }) => {
-
-    const state = useContext(AppContext).state;
-    const changeModeValue = useContext(AppContext).changeModeValue;
-
-    // const onValueChange = (mode: string, value:number)=> {
-    //     changeModeValue(mode, value);
-    // }
-    
+  const state = useContext(AppContext).state;
+  const changeModeValue = useContext(AppContext).changeModeValue;
 
   return (
     <>
@@ -38,15 +32,30 @@ const SettingModal: FC<SettingModalProps> = ({ onClose }) => {
           </span>
         </div>
         <div className="flex flex-col p-4 text-slate-600 font-bold ">
-            <span className="flex gap-3 justify-start items-center">
-                <TfiTimer />
-                <h3>Timer (minutes)</h3>
-            </span>
-            <span className="flex flex-col md:flex-row items-center justify-evenly gap-2">
-                    <ModeInput value={state.modesInfo.focus.minutes} title={"focus"} mode={'focus'} onValueChange={changeModeValue}/>
-                    <ModeInput value={state.modesInfo.short.minutes} title={"Short break"} mode={'short'} onValueChange={changeModeValue}/>
-                    <ModeInput value={state.modesInfo.long.minutes} title={"Long Break"} mode={'long'} onValueChange={changeModeValue}/>
-            </span>
+          <span className="flex gap-3 justify-start items-center">
+            <TfiTimer />
+            <h3>Timer (minutes)</h3>
+          </span>
+          <span className="flex flex-col md:flex-row items-center justify-evenly gap-2">
+            <ModeInput
+              value={state.modesInfo.focus.minutes}
+              title={"focus"}
+              mode={"focus"}
+              onValueChange={changeModeValue}
+            />
+            <ModeInput
+              value={state.modesInfo.short.minutes}
+              title={"Short break"}
+              mode={"short"}
+              onValueChange={changeModeValue}
+            />
+            <ModeInput
+              value={state.modesInfo.long.minutes}
+              title={"Long Break"}
+              mode={"long"}
+              onValueChange={changeModeValue}
+            />
+          </span>
         </div>
       </div>
     </>
