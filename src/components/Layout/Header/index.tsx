@@ -1,12 +1,15 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { MdTimer } from "react-icons/md";
 import { AiFillSetting } from "react-icons/ai";
 import { SiGoogleanalytics } from "react-icons/si";
 import HeaderItem from "./HeaderItem";
 import GlassItem from "./GlassItem";
 import { Link } from "react-router-dom";
+import SettingModal from "../../Modals/SettingModal";
 
 const Header: FC = (): JSX.Element => {
+  const [settingIsShown, setSettingIsShown] = useState(true);
+
   return (
     <header className="w-full">
       <div className="w-full flex justify-between items-center h-[70px] px-3 border-b-2 border-slate-600">
@@ -19,12 +22,14 @@ const Header: FC = (): JSX.Element => {
           </Link>
         {/* header bars */}
         <div className="flex gap-3">
+          <div onClick={()=>{setSettingIsShown(state => !state)}}>
           <GlassItem>
             <HeaderItem>
               <AiFillSetting />
               <h3 className="font-bold text-md hidden md:inline-block">Setting</h3>
             </HeaderItem>
           </GlassItem>
+          </div>
           <GlassItem>
             <HeaderItem>
               <SiGoogleanalytics />
@@ -32,6 +37,7 @@ const Header: FC = (): JSX.Element => {
             </HeaderItem>
           </GlassItem>
         </div>
+        {settingIsShown && <SettingModal onClose={()=>setSettingIsShown(state => !state)}/>}
       </div>
     </header>
   );

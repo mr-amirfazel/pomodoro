@@ -23,7 +23,7 @@ const InitialState: AppState = {
     backGroundColor: "#fc7f03",
     id: "1234",
   },
-  modesInfo: InitialModeInfos
+  modesInfo: InitialModeInfos,
   
 };
 

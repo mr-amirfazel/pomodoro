@@ -8,9 +8,8 @@ export type TimerState = {
 
 export type AppState = {
     timer: TimerState,
-    modesInfo: ModesInfo
+    modesInfo: ModesInfo,
 }
-
 type ModesInfo = {
     focus: { minutes: number, seconds: number },
     short: { minutes: number, seconds: number },
