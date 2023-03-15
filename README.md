@@ -1,3 +1,11 @@
+# PoMoDorO
+you might be familiar with pomodoro studying techinque. Its a way to manage study time and get more outcome of your studying. if you want to know more about  it, check [this](https://www.themuse.com/advice/take-it-from-someone-who-hates-productivity-hacksthe-pomodoro-technique-actually-works) out.
+as an student dealing with lots of subjects to study and also a front-end web developer I decided to create a web app which helps me study by providing myself a visual interface for pomodoro technique.
+Hope you enjoy it
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
