@@ -1,9 +1,4 @@
-import {
-  FC,
-  useContext,
-  PropsWithChildren,
-  useState,
-} from "react";
+import { FC, useContext, PropsWithChildren, useState } from "react";
 import { AppContext } from "../../../context/store";
 import { timerStates } from "../../../constants/timerConstants";
 
@@ -19,12 +14,12 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
 
   const selectedButtonStyles = "bg-[#97cacf99] font-bold";
 
-  const handleClick = (id: string, mode:string) => {
-    changeMode(mode)
-    clickHandler(mode)
+  const handleClick = (id: string, mode: string) => {
+    changeMode(mode);
+    clickHandler(mode);
     setModes((modes) =>
       modes.map((item) => {
-        return { ...item};
+        return { ...item };
       })
     );
     setModes((modes) =>
@@ -34,8 +29,6 @@ const MainHeader: FC<MainHeaderProps> = ({ clickHandler }) => {
           : { ...item, isSelected: false };
       })
     );
-
-    
   };
 
   return (
